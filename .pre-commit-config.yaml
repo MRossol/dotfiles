@@ -1,0 +1,42 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: stable
+    hooks:
+    -   id: check-json
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: check-merge-conflict
+    -   id: check-symlinks
+    -   id: mixed-line-ending
+    -   id: sort-simple-yaml
+    -   id: requirements-txt-fixer
+    -   id: pretty-format-json
+        args: [--autofix]
+# -   repo: https://github.com/FalconSocial/pre-commit-python-sorter
+#     rev: stable
+#     hooks:
+#     -   id: python-import-sorter
+# -   repo: https://github.com/antonbabenko/pre-commit-terraform
+#     rev: stable
+#     hooks:
+#     -   id: terraform_fmt
+#     -   id: terraform_docs
+# -   repo: https://github.com/ambv/black
+#     rev: stable
+#     hooks:
+#     -   id: black
+#         args: [--line-length=120]
+# -   repo: https://github.com/pycqa/isort
+#     rev: stable
+#     hooks:
+#       # https://pycqa.github.io/isort/docs/configuration/black_compatibility.html
+#       - id: isort
+# -   repo: https://gitlab.com/pycqa/flake8
+#     rev: stable
+#     hooks:
+#     -   id: flake8
+# -   repo: https://github.com/PyCQA/pylint
+#     rev: stable
+#     hooks:
+#     -   id: pylint
