@@ -1,5 +1,11 @@
 {
-  "Set Local Environment Vars" : true,
+  "Ansi 5 Color" : {
+    "Red Component" : 0.73725491762161255,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.73725491762161255,
+    "Alpha Component" : 1,
+    "Green Component" : 0.24705882370471954
+  },
   "Prompt Before Closing 2" : 0,
   "Selected Text Color" : {
     "Red Component" : 0.87843137979507446,
@@ -70,15 +76,15 @@
             "path" : "path",
             "maxwidth" : 1.7976931348623157e+308,
             "base: priority" : 5,
-            "minwidth" : 0,
-            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.75,
               "Color Space" : "sRGB",
               "Blue Component" : 0.25,
               "Alpha Component" : 1,
               "Green Component" : 0.25
-            }
+            },
+            "minwidth" : 0,
+            "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -93,15 +99,15 @@
             "maxwidth" : 1.7976931348623157e+308,
             "iTermStatusBarGitComponentPollingIntervalKey" : 2,
             "base: priority" : 5,
-            "minwidth" : 0,
-            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.5,
               "Color Space" : "sRGB",
               "Blue Component" : 0.25,
               "Alpha Component" : 1,
               "Green Component" : 0.5
-            }
+            },
+            "minwidth" : 0,
+            "base: compression resistance" : 1
           },
           "layout advanced configuration dictionary value" : {
             "font" : ".AppleSystemUIFont 12",
@@ -175,6 +181,7 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
+            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.75,
               "Color Space" : "sRGB",
@@ -182,7 +189,6 @@
               "Alpha Component" : 1,
               "Green Component" : 0.75
             },
-            "base: compression resistance" : 1,
             "format" : "M\/dd h:mm"
           },
           "layout advanced configuration dictionary value" : {
@@ -629,8 +635,8 @@
   "Smart Cursor Color" : true,
   "Semantic History" : {
     "editor" : "com.sublimetext.3",
-    "text" : "",
-    "action" : "best editor"
+    "action" : "best editor",
+    "text" : ""
   },
   "Ambiguous Double Width" : false,
   "Blur Radius" : 2,
@@ -696,13 +702,7 @@
   },
   "Columns" : 80,
   "Visual Bell" : true,
+  "ASCII Ligatures" : true,
   "Custom Directory" : "No",
-  "Ansi 5 Color" : {
-    "Red Component" : 0.73725491762161255,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.73725491762161255,
-    "Alpha Component" : 1,
-    "Green Component" : 0.24705882370471954
-  },
-  "ASCII Ligatures" : true
+  "Set Local Environment Vars" : true
 }
