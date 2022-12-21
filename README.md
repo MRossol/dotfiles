@@ -1,6 +1,9 @@
 # dotfiles
 dotfiles needed to sync environment settings
 
+# Install fonts on Mac:
+https://support.apple.com/en-us/HT201749
+
 # Install zsh
 `sudo apt-get install zsh`
 or `conda install zsh -c conda-forge`
