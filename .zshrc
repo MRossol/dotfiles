@@ -169,3 +169,4 @@ bindkey "\e[F" end-of-line
 
 source $HOME/.config/.aliases
 source $HOME/.config/.exports
+export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
