@@ -171,6 +171,8 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
 
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
+
 source $HOME/.config/.aliases
 source $HOME/.config/.exports
 
