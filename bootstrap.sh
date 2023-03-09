@@ -5,11 +5,11 @@ mkdir -p ~/.config/bat
 mkdir -p ~/.git-templates
 mkdir -p ~/.git-templates/hooks
 
-if [ -f $HOME/Library/Fonts]; then
+if [ -f $HOME/Library/Fonts ]; then
         cp $(pwd)/fonts/* $HOME/Library/Fonts/
 else
-        mkdir -p $HOME/.local/share/fonts
-        cp $(pwd)/fonts/* $HOME/.local/share/fonts
+        mkdir -p $HOME/.fonts
+        cp $(pwd)/fonts/* $HOME/.fonts
 fi
 
 if [ -f $HOME/.bash_profile ]; then

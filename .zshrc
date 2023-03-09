@@ -167,6 +167,10 @@ bindkey "\e[F" end-of-line
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
+
 source $HOME/.config/.aliases
 source $HOME/.config/.exports
 

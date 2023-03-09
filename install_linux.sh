@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 echo "Installing requirements"
 
-sudo apt-get install coreutils binutils diffutils findutils gawk gnu-indent gnu-sed gnu-tar gnu-which gnutls grep gzip watch wdiff wget gdb gpatch make git less openssh rsync unzip ripgrep
+sudo apt-get install zsh
+sudo apt-get install coreutils binutils diffutils findutils gawk  grep gzip watch wdiff wget gdb make git less rsync unzip ripgrep
 sudo apt-get install cmake bat exa neovim
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
