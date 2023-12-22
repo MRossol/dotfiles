@@ -43,8 +43,8 @@ rm ~/.config/flake8
 ln -s $(pwd)/.flake8 ~/.config/flake8
 rm ~/.config/pycodestyle
 ln -s $(pwd)/.pycodestyle ~/.config/pycodestyle
-rm ~/.config/pyproject.toml
-ln -s $(pwd)/pyproject.toml ~/.config/pyproject.toml
+rm ~/.ruff.toml
+ln -s $(pwd)/.ruff.toml ~/.ruff.toml
 rm ~/.config/.exports
 ln -s $(pwd)/.exports ~/.config/.exports
 rm ~/.config/.aliases
