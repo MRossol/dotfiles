@@ -5,7 +5,7 @@ mkdir -p ~/.config/bat
 mkdir -p ~/.git-templates
 mkdir -p ~/.git-templates/hooks
 
-if [ -f $HOME/Library/Fonts]; then
+if [ -f $HOME/Library/Fonts ]; then
         cp $(pwd)/fonts/* $HOME/Library/Fonts/
 else
         mkdir -p $HOME/.local/share/fonts
@@ -43,6 +43,8 @@ rm ~/.config/flake8
 ln -s $(pwd)/.flake8 ~/.config/flake8
 rm ~/.config/pycodestyle
 ln -s $(pwd)/.pycodestyle ~/.config/pycodestyle
+rm ~/.config/pyproject.toml
+ln -s $(pwd)/pyproject.toml ~/.config/pyproject.toml
 rm ~/.config/.exports
 ln -s $(pwd)/.exports ~/.config/.exports
 rm ~/.config/.aliases
