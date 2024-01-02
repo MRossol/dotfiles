@@ -23,6 +23,8 @@ exclude = [
     "venv",
 ]
 
+extend-include = ["*.ipynb"]
+
 # Same as Black.
 line-length = 120
 indent-width = 4
