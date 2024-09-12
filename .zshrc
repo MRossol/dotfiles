@@ -169,5 +169,3 @@ bindkey "\e[F" end-of-line
 
 source $HOME/.config/.aliases
 source $HOME/.config/.exports
-
-eval "$(rbenv init - zsh)"

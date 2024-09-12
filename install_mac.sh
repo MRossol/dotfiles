@@ -4,7 +4,7 @@ echo "Installing requirements"
 brew install cmake
 brew install ripgrep
 brew install git-lfs
-brew install bat exa neovim
+brew install bat eza neovim
 
 brew install coreutils binutils diffutils findutils gawk gnu-indent gnu-sed gnu-tar gnu-which gnutls grep gzip watch wdiff wget gdb gpatch make git less openssh rsync unzip
 
