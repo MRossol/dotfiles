@@ -24,8 +24,6 @@ fi
 rm ~/.bashrc
 ln -s $(pwd)/.bashrc ~/.bashrc
 
-rm ~/.zshenv
-ln -s $(pwd)/.zshenv ~/.zshenv
 rm ~/.zshrc
 ln -s $(pwd)/.zshrc ~/.zshrc
 rm ~/.p10k.zsh
