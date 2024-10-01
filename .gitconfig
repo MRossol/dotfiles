@@ -2,9 +2,6 @@
 	name = Michael Rossol
 	email = mrossol@gmail.com
 
-[includeIf "gitdir:~/apeelsciences/"]
-    path = .gitconfig-enterprise
-
 [credential]
 	helper = osxkeychain
 
