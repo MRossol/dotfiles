@@ -14,3 +14,9 @@ Use the git history, existing releases, tags, and arguments to create a release 
 - branch: The branch to create a release for
 - version: The version to create a release for
 - pre-release: Create a pre-release version
+
+## Semantic Versioning
+
+- Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) as a guide for determining the next version based on the git history.
+- For releases on main use the most recent merge commit to determine the next version.
+- For releases on other branches use the branch commit history to determine the next version.
