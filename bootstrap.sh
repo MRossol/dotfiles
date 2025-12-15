@@ -71,3 +71,9 @@ ln -s $(pwd)/.pylintrc ~/.pylintrc
 
 rm ~/.gitconfig-enterprise
 ln -s $(pwd)/.gitconfig-enterprise ~/.gitconfig-enterprise
+
+rm ~/.cursor/mcp.json
+ln -s $(pwd)/.cursor/mcp.json ~/.cursor/mcp.json
+
+rm -rf ~/.claude/commands
+ln -s $(pwd)/.claude/commands ~/.claude/commands

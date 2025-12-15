@@ -172,3 +172,5 @@ source $HOME/.config/.exports
 
 source <(kubectl completion zsh)
 autoload bashcompinit && bashcompinit && source /opt/homebrew/etc/bash_completion.d/ckutil
+
+

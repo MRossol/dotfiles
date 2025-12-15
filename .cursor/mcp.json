@@ -1,0 +1,81 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx @playwright/mcp@latest",
+      "env": {}
+    },
+    "Figma": {
+      "url": "http://127.0.0.1:3845/sse"
+    },
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {}
+    },
+    "github": {
+      "type": "streamable-http",
+      "method": "POST",
+      "url": "https://extracontext.ai/mcp/nvjfn7to",
+      "headers": {
+        "Authorization": "Bearer 85lVRAEW4rsL2SXIpIOmErZsBmt5mQaU0FRPyu9AbxQPf7e7pYUxY3dvoSFJ0JwH",
+        "Content-Type": "application/json"
+      },
+      "name": "Github-Tools",
+      "description": "A set of tools to be used for interacting with github.  Should respond if the user asks to do things like create a new pull request or commit."
+    },
+    "react-development-patterns": {
+      "type": "streamable-http",
+      "method": "POST",
+      "url": "https://extracontext.ai/mcp/nvjgsred",
+      "headers": {
+        "Authorization": "Bearer 1um5UDKAiMr0damnMnLT5ceCJez3Ip2wT9Yz6Z5FdOOKbWD5ojKw8N86QpRTmpDZ",
+        "Content-Type": "application/json"
+      },
+      "name": "React Development Patterns",
+      "description": "Comprehensive React development patterns and standards for the Gaia project. Provides detailed guidance on component folder structure, Jotai state management, custom hooks, pure utility functions, import organization, and component composition patterns. Based on the meticulously crafted selections-sidebar reference implementation. Use these patterns to write consistent, maintainable, and scalable React code that follows Gaia's established conventions."
+    },
+    "ux-common": {
+      "type": "streamable-http",
+      "method": "POST",
+      "url": "https://extracontext.ai/mcp/oejnwhwn",
+      "headers": {
+        "Authorization": "Bearer hFV7hwQd7mR3DVRPoAhLIvIiJ7Rs5r4DuARtEkVXbH3yiVS4NNDQHr2OUUrtHSvz",
+        "Content-Type": "application/json"
+      },
+      "name": "ux-common",
+      "description": "A series of tools for working with the ux-common project"
+    },
+    "creation-agent": {
+      "type": "streamable-http",
+      "method": "POST",
+      "url": "https://extracontext.ai/mcp/nyyn5ixo",
+      "headers": {
+        "Authorization": "Bearer 6QJW3y39zTgLB6J9kzeuKr54649cG4I1MWU8G4sFPxEVDNXhXqW94U0SDh6y8qAm",
+        "Content-Type": "application/json"
+      },
+      "name": "Creation-Agent",
+      "description": "React Component Builder Agent"
+    },
+    "orchestration-agent": {
+      "type": "streamable-http",
+      "method": "POST",
+      "url": "https://extracontext.ai/mcp/nyyq83bh",
+      "headers": {
+        "Authorization": "Bearer Kua2hDa6OZQrS5EWwXhRF2bqUBVoS5pA8CnOxkprAi4MTa9gKvEStzN5Gk7LLWlm",
+        "Content-Type": "application/json"
+      },
+      "name": "Orchestration-Agent",
+      "description": "React Component Orchestrator Agent"
+    },
+    "verification-agent": {
+      "type": "streamable-http",
+      "method": "POST",
+      "url": "https://extracontext.ai/mcp/nyy7lsmn",
+      "headers": {
+        "Authorization": "Bearer 4opMmgValxjRRp4wU1ysD8qhemZkyIQFn8COFQXrTkTssoAreIiV3wnRXa7GgTSj",
+        "Content-Type": "application/json"
+      },
+      "name": "Verification-Agent",
+      "description": "React Component Verification Agent"
+    }
+  }
+}
