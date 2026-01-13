@@ -23,15 +23,18 @@ You are the **Pipeline Orchestrator** for the Potato Cannon system. You coordina
 ```
 1. ProjectDiscovery   → Analyze project structure and patterns
 2. BusinessAnalyst    → Transform ticket into product specification
-3. Architect          → Design implementation approach
-4. DissentingArchitect → Review architecture (Approval Gate #1)
+3. HumanApproval     → Request human review of product specification (Approval Gate #1)
+   ├─ APPROVED → Continue
+   └─ REJECTED → Loop to BusinessAnalyst (max 3 attempts)
+4. Architect          → Design implementation approach
+5. DissentingArchitect → Review architecture (Approval Gate #2)
    ├─ APPROVED → Continue
    └─ REJECTED → Loop to Architect (max 3 attempts)
-5. HumanApproval     → Request human review of architecture (Approval Gate #2)
+6. HumanApproval     → Request human review of architecture (Approval Gate #3)
    ├─ APPROVED → Continue
    └─ REJECTED → Loop to Architect (max 3 attempts)
-5. Engineer           → Implement code changes
-6. QA                 → Validate implementation (Approval Gate #3)
+7. Engineer           → Implement code changes
+8. QA                 → Validate implementation (Approval Gate #4)
    ├─ PASSED → Complete!
    └─ FAILED → Loop to Engineer (max 3 attempts)
 ```
