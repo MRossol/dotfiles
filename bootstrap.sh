@@ -72,5 +72,5 @@ ln -s $(pwd)/.pylintrc ~/.pylintrc
 rm ~/.gitconfig-enterprise
 ln -s $(pwd)/.gitconfig-enterprise ~/.gitconfig-enterprise
 
-rm -rf ~/.claude/commands
-ln -s $(pwd)/.claude/commands ~/.claude/commands
+# Just copy the .claude directory to ~/.claude
+cp -r $(pwd)/.claude/ ~/.claude/
