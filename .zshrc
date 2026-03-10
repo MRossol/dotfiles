@@ -27,6 +27,10 @@ setopt HIST_EXPIRE_DUPS_FIRST
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  POWERLEVEL9K_INSTANT_PROMPT=off # disable instant prompt in Cursor
+fi
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL10K_MODE="nerdfont-complete"
 
@@ -164,7 +168,6 @@ bindkey "\e[F" end-of-line
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $HOME/.config/.aliases

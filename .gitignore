@@ -83,6 +83,9 @@ celerybeat-schedule
 # dotenv
 .env
 
+# Local secrets (tokens, keys) — do not commit
+.exports.local
+
 # virtualenv
 .venv
 venv/

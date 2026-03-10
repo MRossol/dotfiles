@@ -68,6 +68,9 @@ export PATH="/Users/mrossol/.antigravity/antigravity/bin:$PATH"
 
 export GOPRIVATE=github.com/crossnokaye
 
+# Secrets (tokens, keys) — keep in .exports.local, do not commit
+[[ -f "$HOME/.config/.exports.local" ]] && source "$HOME/.config/.exports.local"
+
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
