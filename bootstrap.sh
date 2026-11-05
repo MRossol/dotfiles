@@ -26,6 +26,8 @@ ln -s $(pwd)/.bashrc ~/.bashrc
 
 rm ~/.zshrc
 ln -s $(pwd)/.zshrc ~/.zshrc
+rm ~/.zprofile
+ln -s $(pwd)/.zprofile ~/.zprofile
 rm ~/.p10k.zsh
 ln -s $(pwd)/.p10k.zsh ~/.p10k.zsh
 
@@ -72,5 +74,3 @@ ln -s $(pwd)/.pylintrc ~/.pylintrc
 rm ~/.gitconfig-enterprise
 ln -s $(pwd)/.gitconfig-enterprise ~/.gitconfig-enterprise
 
-# Just copy the .claude directory to ~/.claude
-cp -r $(pwd)/.claude/ ~/.claude/
