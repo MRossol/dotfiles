@@ -238,7 +238,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.89803922176361084
   },
-  "Use Non-ASCII Font" : false,
+  "Use Non-ASCII Font" : true,
   "Link Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -710,7 +710,7 @@
     "Green Component" : 0.055718656629323959
   },
   "Screen" : -1,
-  "Non Ascii Font" : "Menlo-Regular 11",
+  "Non Ascii Font" : "MesloLGMNF-Regular 11",
   "Ansi 13 Color" : {
     "Red Component" : 0.83921569585800171,
     "Color Space" : "sRGB",
