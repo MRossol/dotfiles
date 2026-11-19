@@ -1,3 +1,15 @@
 #!/bin/sh
+CONFIG="${HOME}/.pre-commit-config.yaml"
+[ -f "$CONFIG" ] || exit 0
 
-pre-commit run --config ~/.pre-commit-config.yaml
+if command -v pre-commit >/dev/null 2>&1; then
+  exec pre-commit run --config "$CONFIG"
+fi
+
+for p in "${HOME}/.local/bin/pre-commit" "${HOME}/miniconda3/bin/pre-commit" /opt/homebrew/bin/pre-commit; do
+  if [ -x "$p" ]; then
+    exec "$p" run --config "$CONFIG"
+  fi
+done
+
+exit 0

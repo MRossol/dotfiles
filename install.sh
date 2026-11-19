@@ -36,7 +36,7 @@ install_darwin() {
     fi
   fi
 
-  brew install cmake ripgrep git-lfs bat eza neovim fzf
+  brew install cmake ripgrep git-lfs bat eza neovim fzf pre-commit
   brew install coreutils binutils diffutils findutils gawk gnu-indent gnu-sed gnu-tar gnu-which gnutls grep gzip watch wdiff wget gdb gpatch make git less openssh rsync unzip
   brew install --cask iterm2 font-jetbrains-mono-nerd-font
 
@@ -47,7 +47,12 @@ install_darwin() {
 install_linux() {
   sudo apt-get update
   sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    zsh git curl ripgrep cmake bat neovim fzf wget unzip
+    zsh git curl ripgrep cmake bat neovim fzf wget unzip python3-pip
+  if apt-cache show pre-commit >/dev/null 2>&1; then
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y pre-commit
+  else
+    pip3 install --user pre-commit
+  fi
 
   if apt-cache show eza >/dev/null 2>&1; then
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y eza

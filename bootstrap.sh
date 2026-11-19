@@ -39,6 +39,10 @@ link "$DOTFILES_DIR/.pre-commit-config.yaml" "$HOME/.pre-commit-config.yaml"
 link "$DOTFILES_DIR/.git-templates/hooks/pre-commit" "$HOME/.git-templates/hooks/pre-commit"
 chmod +x "$DOTFILES_DIR/.git-templates/hooks/pre-commit"
 
+if [[ -d "$DOTFILES_DIR/.git/hooks" ]]; then
+  link "$DOTFILES_DIR/.git-templates/hooks/pre-commit" "$DOTFILES_DIR/.git/hooks/pre-commit"
+fi
+
 if [[ "$(uname -s)" == Darwin ]] && [[ -f "$DOTFILES_DIR/iterm-profile.json" ]]; then
   ITERM_DIR="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
   mkdir -p "$ITERM_DIR"
