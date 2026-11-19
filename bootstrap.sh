@@ -55,6 +55,14 @@ if [[ "$(uname -s)" == Darwin ]] && [[ -f "$DOTFILES_DIR/iterm-profile.json" ]];
   link "$WRAPPED" "$ITERM_DIR/MRossol.json"
 fi
 
-if [[ -x "$DOTFILES_DIR/link-agent-skills.sh" ]]; then
+claude_plugins_installed() {
+  local f="$HOME/.claude/plugins/installed_plugins.json"
+  [[ -f "$f" ]] || return 1
+  python3 -c 'import json, sys; d=json.load(open(sys.argv[1])); sys.exit(0 if d.get("plugins") else 1)' "$f"
+}
+
+if claude_plugins_installed && [[ -x "$DOTFILES_DIR/link-agent-skills.sh" ]]; then
   "$DOTFILES_DIR/link-agent-skills.sh"
+elif [[ -x "$DOTFILES_DIR/install-agent-skills.sh" ]]; then
+  "$DOTFILES_DIR/install-agent-skills.sh"
 fi

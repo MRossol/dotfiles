@@ -1,0 +1,17 @@
+# Public skills (bootstrap on fresh machine)
+# Format: owner/repo skill ...   or   owner/repo --all
+# Snapshot; edit when your Claude plugin set changes.
+
+github/gh-stack gh-stack
+vercel-labs/agent-skills vercel-react-best-practices
+vercel-labs/skills find-skills
+
+obra/superpowers --all
+figma/mcp-server-guide --all
+mattpocock/skills --all
+DietrichGebert/ponytail ponytail ponytail-audit ponytail-debt ponytail-gain ponytail-help ponytail-review
+google/elephant-goldfish-model egm-bootstrap egm-brainstorm egm-draft egm-drift-report egm-resolve egm-review egm-review-loop
+atlassian/atlassian-mcp-server capture-tasks-from-meeting-notes generate-status-report jira-sprint-dashboard search-company-knowledge spec-to-backlog triage-issue
+
+# Installed anthropics/claude-plugins-official plugins that ship skills (not --all — that would pull the whole marketplace)
+anthropics/claude-plugins-official claude-automation-recommender claude-md-improver frontend-design skill-creator agent-development command-development hook-development mcp-integration plugin-settings plugin-structure skill-development

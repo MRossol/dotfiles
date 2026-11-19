@@ -1,0 +1,8 @@
+# CrossnoKaye skills (manual install)
+# Format: owner/repo skill ...   or   owner/repo --all
+# Snapshot; edit when your Claude plugin set changes.
+
+crossnokaye/agentic-design-system product-design-principles ux-common-guidance
+crossnokaye/ck-llm-plugin-marketplace register-marketplace structure-team-repo sync-org-marketplaces
+crossnokaye/google-docs-skills ck-design-doc-create ck-design-doc-update ck-doc-authoring ck-gdoc-md
+crossnokaye/tux-plugins --all

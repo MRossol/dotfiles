@@ -7,7 +7,7 @@ This repo boots a **zsh + git** environment on **macOS (Apple Silicon)** or **De
 | Script | Role |
 |--------|------|
 | `install.sh` | OS-specific packages, Oh My Zsh (`--unattended` so it does not replace `.zshrc`), zsh plugins, powerlevel10k |
-| `bootstrap.sh` | Symlinks repo files into `$HOME` (and iTerm Dynamic Profile on Darwin only); runs `link-agent-skills.sh` when present |
+| `bootstrap.sh` | Symlinks repo files into `$HOME` (and iTerm Dynamic Profile on Darwin only); links Claude skills or runs `install-agent-skills.sh` on a fresh machine |
 
 `install.sh` branches on `uname -s`. Do not merge Mac and Linux package lists: Mac uses **Homebrew formula/cask names**; Linux uses **apt** package names.
 
@@ -28,7 +28,9 @@ This repo boots a **zsh + git** environment on **macOS (Apple Silicon)** or **De
 
 ## Claude → Codex / Antigravity skills
 
-`link-agent-skills.sh` (from `bootstrap.sh`) symlinks skills from the local Claude install into `~/.codex/skills` and `~/.gemini/config/skills`, and symlinks Antigravity-compatible Claude plugin trees into `~/.gemini/config/plugins`. It no-ops without `~/.claude`. It only replaces destinations that are already symlinks into `~/.claude`; real directories (e.g. Antigravity-installed `egm`, `superpowers`) are left alone.
+- **`agent-skills.txt`** / **`agent-skills.ck.txt`**: committed snapshots for `gh skill install` (public vs CrossnoKaye). Update when you add or remove Claude plugins with skills; do not use `anthropics/claude-plugins-official --all` in the public file (that installs the whole marketplace).
+- **`install-agent-skills.sh`**: reads a catalog; targets `claude-code`, `codex`, and `antigravity2.0` at user scope; no-ops if `gh` or `gh skill` is missing.
+- **`link-agent-skills.sh`**: when `~/.claude/plugins/installed_plugins.json` lists plugins, bootstrap symlinks into `~/.codex/skills`, `~/.gemini/config/skills`, and compatible `~/.gemini/config/plugins`. Skips real dirs (e.g. Antigravity `egm`, `superpowers`).
 
 ## Do not re-vendor
 
