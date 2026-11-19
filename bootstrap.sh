@@ -50,3 +50,7 @@ if [[ "$(uname -s)" == Darwin ]] && [[ -f "$DOTFILES_DIR/iterm-profile.json" ]];
   fi
   link "$WRAPPED" "$ITERM_DIR/MRossol.json"
 fi
+
+if [[ -x "$DOTFILES_DIR/link-agent-skills.sh" ]]; then
+  "$DOTFILES_DIR/link-agent-skills.sh"
+fi

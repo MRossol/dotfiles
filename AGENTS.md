@@ -7,7 +7,7 @@ This repo boots a **zsh + git** environment on **macOS (Apple Silicon)** or **De
 | Script | Role |
 |--------|------|
 | `install.sh` | OS-specific packages, Oh My Zsh (`--unattended` so it does not replace `.zshrc`), zsh plugins, powerlevel10k |
-| `bootstrap.sh` | Symlinks repo files into `$HOME` (and iTerm Dynamic Profile on Darwin only) |
+| `bootstrap.sh` | Symlinks repo files into `$HOME` (and iTerm Dynamic Profile on Darwin only); runs `link-agent-skills.sh` when present |
 
 `install.sh` branches on `uname -s`. Do not merge Mac and Linux package lists: Mac uses **Homebrew formula/cask names**; Linux uses **apt** package names.
 
@@ -25,6 +25,10 @@ This repo boots a **zsh + git** environment on **macOS (Apple Silicon)** or **De
 ## Secrets
 
 `~/.config/.exports.local` is **gitignored**, **not** symlinked by bootstrap. Document new secret vars there, not in `.exports`.
+
+## Claude → Codex / Antigravity skills
+
+`link-agent-skills.sh` (from `bootstrap.sh`) symlinks skills from the local Claude install into `~/.codex/skills` and `~/.gemini/config/skills`, and symlinks Antigravity-compatible Claude plugin trees into `~/.gemini/config/plugins`. It no-ops without `~/.claude`. It only replaces destinations that are already symlinks into `~/.claude`; real directories (e.g. Antigravity-installed `egm`, `superpowers`) are left alone.
 
 ## Do not re-vendor
 

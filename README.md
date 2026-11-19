@@ -31,7 +31,7 @@ Create `~/.config/.exports.local` on each machine (not committed). Put API token
 
 ## What gets linked
 
-`bootstrap.sh` symlinks zsh config, git config, pre-commit config, bat/ruff/conda settings, and (on macOS) the iTerm Dynamic Profile. See [`AGENTS.md`](AGENTS.md) for conventions when editing this repo.
+`bootstrap.sh` symlinks zsh config, git config, pre-commit config, bat/ruff/conda settings, and (on macOS) the iTerm Dynamic Profile. When `~/.claude` exists, it also runs [`link-agent-skills.sh`](link-agent-skills.sh) to publish Claude-installed skills (and compatible plugins) into Codex and Antigravity via symlinks. See [`AGENTS.md`](AGENTS.md) for conventions when editing this repo.
 
 ## Optional
 
