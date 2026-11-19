@@ -1,69 +1,52 @@
 #!/usr/bin/env bash
-echo "Symlinking files from $(pwd)"
-mkdir -p ~/.config
-mkdir -p ~/.config/bat
-mkdir -p ~/.git-templates
-mkdir -p ~/.git-templates/hooks
+set -euo pipefail
 
-if [ -f $HOME/.bash_profile ]; then
-        cp $HOME/.bash_profile $HOME/.bash_profile.bak
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+link() {
+  local src=$1 dest=$2
+  local parent
+  parent="$(dirname "$dest")"
+  mkdir -p "$parent"
+  if [[ -e "$parent" ]] && [[ ! -O "$parent" ]]; then
+    echo "$parent is not owned by you; fixing ownership (sudo)..."
+    sudo chown -R "$(id -un):$(id -gn)" "$parent"
+  fi
+  if [[ -e "$dest" || -L "$dest" ]]; then
+    if [[ -d "$dest" && ! -L "$dest" ]]; then
+      rm -rf "$dest"
+    else
+      rm -f "$dest"
+    fi
+  fi
+  ln -s "$src" "$dest"
+}
+
+echo "Symlinking files from $DOTFILES_DIR"
+mkdir -p ~/.config/bat ~/.git-templates/hooks
+
+link "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+link "$DOTFILES_DIR/.zprofile" "$HOME/.zprofile"
+link "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
+link "$DOTFILES_DIR/.condarc" "$HOME/.condarc"
+link "$DOTFILES_DIR/.ruff.toml" "$HOME/.ruff.toml"
+link "$DOTFILES_DIR/.exports" "$HOME/.config/.exports"
+link "$DOTFILES_DIR/.aliases" "$HOME/.config/.aliases"
+link "$DOTFILES_DIR/.batconfig" "$HOME/.config/bat/config"
+link "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
+link "$DOTFILES_DIR/.gitignore" "$HOME/.gitignore"
+link "$DOTFILES_DIR/.pre-commit-config.yaml" "$HOME/.pre-commit-config.yaml"
+link "$DOTFILES_DIR/.git-templates/hooks/pre-commit" "$HOME/.git-templates/hooks/pre-commit"
+chmod +x "$DOTFILES_DIR/.git-templates/hooks/pre-commit"
+
+if [[ "$(uname -s)" == Darwin ]] && [[ -f "$DOTFILES_DIR/iterm-profile.json" ]]; then
+  ITERM_DIR="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
+  mkdir -p "$ITERM_DIR"
+  WRAPPED="$DOTFILES_DIR/.iterm-dynamic-profile.json"
+  if [[ ! -f "$WRAPPED" ]] || [[ "$DOTFILES_DIR/iterm-profile.json" -nt "$WRAPPED" ]]; then
+    printf '{"Profiles":[' > "$WRAPPED"
+    cat "$DOTFILES_DIR/iterm-profile.json" >> "$WRAPPED"
+    printf ']}\n' >> "$WRAPPED"
+  fi
+  link "$WRAPPED" "$ITERM_DIR/MRossol.json"
 fi
-rm ~/.bash_profile
-ln -s $(pwd)/.bash_profile ~/.bash_profile
-
-if [ -f $HOME/.bashrc ]; then
-        cp $HOME/.bashrc $HOME/.bashrc.bak
-fi
-rm ~/.bashrc
-ln -s $(pwd)/.bashrc ~/.bashrc
-
-rm ~/.zshrc
-ln -s $(pwd)/.zshrc ~/.zshrc
-rm ~/.zprofile
-ln -s $(pwd)/.zprofile ~/.zprofile
-rm ~/.p10k.zsh
-ln -s $(pwd)/.p10k.zsh ~/.p10k.zsh
-
-rm ~/.fzf.bash
-ln -s $(pwd)/.fzf.bash ~/.fzf.bash
-rm ~/.fzf.zsh
-ln -s $(pwd)/.fzf.zsh ~/.fzf.zsh
-
-rm ~/.condarc
-ln -s $(pwd)/.condarc ~/.condarc
-
-rm ~/.config/flake8
-ln -s $(pwd)/.flake8 ~/.config/flake8
-rm ~/.config/pycodestyle
-ln -s $(pwd)/.pycodestyle ~/.config/pycodestyle
-rm ~/.ruff.toml
-ln -s $(pwd)/.ruff.toml ~/.ruff.toml
-rm ~/.config/.exports
-ln -s $(pwd)/.exports ~/.config/.exports
-rm ~/.config/.aliases
-ln -s $(pwd)/.aliases ~/.config/.aliases
-rm ~/.config/.fzf.bash
-ln -s $(pwd)/.fzf.bash ~/.config/.fzf.bash
-rm ~/.config/.fzf.zsh
-ln -s $(pwd)/.fzf.zsh ~/.config/.fzf.zsh
-
-rm -rf ~/.config/bat/config
-ln -s $(pwd)/.batconfig ~/.config/bat/config
-
-rm ~/.gitconfig
-ln -s $(pwd)/.gitconfig ~/.gitconfig
-rm ~/.gitignore
-ln -s $(pwd)/.gitignore ~/.gitignore
-rm ~/.pre-commit-config.yaml
-ln -s $(pwd)/.pre-commit-config.yaml ~/.pre-commit-config.yaml
-rm ~/.git-template/hooks/pre-commit
-ln -s $(pwd)/.git-templates/hooks/pre-commit ~/.git-templates/hooks/pre-commit
-chmod -R a+X $(pwd)/.git-templates
-chmod -R a+X ~/.git-templates
-
-rm ~/.pylintrc
-ln -s $(pwd)/.pylintrc ~/.pylintrc
-
-rm ~/.gitconfig-enterprise
-ln -s $(pwd)/.gitconfig-enterprise ~/.gitconfig-enterprise
-

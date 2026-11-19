@@ -1,30 +1,40 @@
 # dotfiles
-dotfiles needed to sync environment settings
 
-# Install fonts on Mac:
-https://support.apple.com/en-us/HT201749
+Terminal and git config for a new machine. Symlinked into `$HOME` via `bootstrap.sh`; packages and Oh My Zsh via `install.sh`.
 
-# Install zsh (on linux)
-`sudo apt-get install zsh`
-or `conda install zsh -c conda-forge`
-`sudo chsh -s /usr/bin/zsh $USER`
+## Quick start
 
-# Install zsh dependancies
-`./install.sh`
+```bash
+git clone <this-repo> ~/dotfiles
+cd ~/dotfiles
+./install.sh
+./bootstrap.sh
+```
 
-# Run bootstrap
-`./bootstrap.sh`
+Restart the terminal (or `exec zsh -l`).
 
-# Jupyter install
-`conda install jupyter`
+### Linux (Debian/Ubuntu, Chromebook Crostini)
 
-## Jupyter Notebook Extensions
-`conda install -c conda-forge jupyter_contrib_nbextensions`
+`install.sh` uses `apt` for packages. If zsh is not your login shell yet:
 
-## Conda Kernels
-`conda install nb_conda_kernels` # Currently not available for python 3.9
-In each env: `conda install ipykernel`
-If using 3.9 in each env also run:
-`ipython kernel install --user --name=<env-name>`
+```bash
+chsh -s "$(command -v zsh)"
+```
 
-To uninstall kernel: `jupyter kernelspec uninstall <env-name>`
+### macOS
+
+`install.sh` installs [Homebrew](https://brew.sh/) if needed, CLI tools, iTerm2, JetBrains Mono Nerd Font, and a shallow clone of [iTerm2 color schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) under `~/.config/iterm2-color-schemes`. Day-to-day colors come from the **MRossol** Dynamic Profile (`iterm-profile.json`).
+
+## Secrets
+
+Create `~/.config/.exports.local` on each machine (not committed). Put API tokens and machine-specific paths there. It is sourced from [`.exports`](.exports) when present.
+
+## What gets linked
+
+`bootstrap.sh` symlinks zsh config, git config, pre-commit config, bat/ruff/conda settings, and (on macOS) the iTerm Dynamic Profile. See [`AGENTS.md`](AGENTS.md) for conventions when editing this repo.
+
+## Optional
+
+- **Miniconda**: paths in `.exports` assume `$HOME/miniconda3`.
+- **NVM / pnpm**: loaded from `.exports` when installed.
+- **Pre-commit**: `pip install pre-commit` then `pre-commit install` in a project that uses `~/.pre-commit-config.yaml`.

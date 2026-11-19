@@ -112,8 +112,6 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-FZF_BASE=$HOME/.fzf
-
 # defaults
 MAGIC_ENTER_GIT_COMMAND='git status -u .; ls .'
 MAGIC_ENTER_OTHER_COMMAND='ls .'
@@ -168,18 +166,34 @@ bindkey "\e[F" end-of-line
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+_fzf_shell_dir=""
+for _dir in /opt/homebrew/opt/fzf/shell /usr/share/fzf /usr/share/doc/fzf/examples; do
+  if [[ -f "$_dir/key-bindings.zsh" ]]; then
+    _fzf_shell_dir=$_dir
+    break
+  fi
+done
+if [[ -n $_fzf_shell_dir ]]; then
+  [[ -f "$_fzf_shell_dir/completion.zsh" ]] && source "$_fzf_shell_dir/completion.zsh"
+  source "$_fzf_shell_dir/key-bindings.zsh"
+fi
+unset _fzf_shell_dir _dir
 
 source $HOME/.config/.aliases
 source $HOME/.config/.exports
 
-source <(kubectl completion zsh)
-autoload bashcompinit && bashcompinit && source /opt/homebrew/etc/bash_completion.d/ckutil
+command -v kubectl >/dev/null && source <(kubectl completion zsh)
+if [[ -f /opt/homebrew/etc/bash_completion.d/ckutil ]]; then
+  autoload -Uz bashcompinit && bashcompinit
+  source /opt/homebrew/etc/bash_completion.d/ckutil
+fi
 
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mrossol/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mrossol/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mrossol/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mrossol/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+_gcloud_sdk="$HOME/Downloads/google-cloud-sdk"
+if [[ -f "$_gcloud_sdk/path.zsh.inc" ]]; then
+  source "$_gcloud_sdk/path.zsh.inc"
+fi
+if [[ -f "$_gcloud_sdk/completion.zsh.inc" ]]; then
+  source "$_gcloud_sdk/completion.zsh.inc"
+fi
+unset _gcloud_sdk
