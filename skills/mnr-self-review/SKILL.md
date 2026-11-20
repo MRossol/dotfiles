@@ -1,14 +1,15 @@
 ---
-name: self-review
+name: mnr-self-review
 description: >-
-  This skill should be used when the user asks to "self review", "review and
-  plan fixes", "run my review", "review then plan", or invokes /self-review.
+  This skill should be used when the user asks to "mnr self review", "self review
+  and plan fixes", "run my review", "review then plan", or invokes
+  /mnr-self-review.
   Runs tux-code-review, runs ponytail-review alongside the simplify agent,
   merges those findings, reports the full summary, then writes a plan to fix
   every issue. Does not edit code.
 ---
 
-# Self-review
+# MNR self-review
 
 Personal branch review: full tux parallel roster, ponytail over-engineering pass
 in the same launch turn as simplify, merged simplification findings, mandatory
@@ -101,7 +102,7 @@ After the summary (and post-offer when applicable), produce a fix plan for
 
 - Never skip the full tux roster to save time.
 - Never run ponytail instead of simplify — both run; merge their outputs.
-- Never edit application code during self-review (summary + plan only).
+- Never edit application code during mnr-self-review (summary + plan only).
 - Never truncate diffs passed to ponytail or roster specialists.
 - Never post PR comments without explicit user approval.
 
