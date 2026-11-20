@@ -55,6 +55,18 @@ if [[ "$(uname -s)" == Darwin ]] && [[ -f "$DOTFILES_DIR/iterm-profile.json" ]];
   link "$WRAPPED" "$ITERM_DIR/MRossol.json"
 fi
 
+if [[ -d "$DOTFILES_DIR/skills" ]]; then
+  mkdir -p "$HOME/.claude/skills" "$HOME/.codex/skills" "$HOME/.gemini/config/skills"
+  for skill_dir in "$DOTFILES_DIR"/skills/*/; do
+    [[ -d "$skill_dir" ]] || continue
+    [[ -f "$skill_dir/SKILL.md" ]] || continue
+    skill_name="$(basename "$skill_dir")"
+    link "$skill_dir" "$HOME/.claude/skills/$skill_name"
+    link "$skill_dir" "$HOME/.codex/skills/$skill_name"
+    link "$skill_dir" "$HOME/.gemini/config/skills/$skill_name"
+  done
+fi
+
 claude_plugins_installed() {
   local f="$HOME/.claude/plugins/installed_plugins.json"
   [[ -f "$f" ]] || return 1

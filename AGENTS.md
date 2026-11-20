@@ -31,6 +31,7 @@ This repo boots a **zsh + git** environment on **macOS (Apple Silicon)** or **De
 - **`agent-skills.txt`** / **`agent-skills.ck.txt`**: committed snapshots for `gh skill install` (public vs CrossnoKaye). Update when you add or remove Claude plugins with skills; do not use `anthropics/claude-plugins-official --all` in the public file (that installs the whole marketplace).
 - **`install-agent-skills.sh`**: reads a catalog; targets `claude-code`, `codex`, and `antigravity2.0` at user scope; no-ops if `gh` or `gh skill` is missing.
 - **`link-agent-skills.sh`**: when `~/.claude/plugins/installed_plugins.json` lists plugins, bootstrap symlinks into `~/.codex/skills`, `~/.gemini/config/skills`, and compatible `~/.gemini/config/plugins`. Skips real dirs (e.g. Antigravity `egm`, `superpowers`).
+- **Personal skills**: committed under `skills/<name>/` (each with `SKILL.md`). `bootstrap.sh` symlinks every such directory into `~/.claude/skills`, `~/.codex/skills`, and `~/.gemini/config/skills` before plugin skill linking. Repo is source of truth; `link-agent-skills.sh` will not prune those codex/gemini links (they do not resolve under `~/.claude`).
 
 ## Do not re-vendor
 
